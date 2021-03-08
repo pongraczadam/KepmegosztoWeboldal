@@ -1,2 +1,2 @@
 # KepmegosztoWeboldal
-Ruby házi feladat
+Ruby házi feladata
