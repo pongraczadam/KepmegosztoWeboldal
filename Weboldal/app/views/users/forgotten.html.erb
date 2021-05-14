@@ -1,2 +1,11 @@
-<h1>Users#forgotten</h1>
-<p>Find me in app/views/users/forgotten.html.erb</p>
+<div id="userForm">
+    <fieldset>
+        <legend>Add meg az email címed a jelszó helyreállításához</legend>
+        <%= form_tag '/users/send_forgotten', method: :post do %>
+            <%= label_tag 'email', 'Email' %>
+            <%= text_field 'email', '', placeholder: 'Email' %>
+
+            <%= submit_tag "Bejelentkezés" %>
+        <% end %>
+    </fieldset>
+</div>

@@ -3,10 +3,10 @@
         <legend>Bejelentkezés</legend>
         <%= form_tag '/sessions/create', method: :post do %>
             <%= label_tag 'email', 'Email' %>
-            <%= text_field 'email', '' %>
+            <%= text_field 'email', '', placeholder: 'Email' %>
 
             <%= label_tag 'password', 'Jelszó' %>
-            <%= text_field 'password', '' %>
+            <%= text_field 'password', '', placeholder: 'Jelszó' %>
 
             <%= submit_tag "Bejelentkezés" %>
         <% end %>

@@ -4,16 +4,16 @@
         <%= form_for @user,  url: '/users/create', method: :post do |form|%>
 
             <%= form.label :name, 'Név' %>
-            <%= form.text_field :name %>
+            <%= form.text_field :name, placeholder: 'Név' %>
 
             <%= form.label :email, 'Email' %>
-            <%= form.text_field :email %>
+            <%= form.text_field :email, placeholder: 'Email' %>
 
             <%= form.label :password, 'Jelszó' %>
-            <%= form.password_field :password %>
+            <%= form.password_field :password, placeholder: 'Jelszó' %>
 
             <%= form.label :password_confirmation, 'Jelszó megerősítése' %>
-            <%= form.password_field :password_confirmation %>
+            <%= form.password_field :password_confirmation, placeholder: 'Jelszó megerősítése' %>
             
             <%= form.submit "Regisztáció" %>
         <% end %>
