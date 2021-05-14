@@ -2,11 +2,13 @@
     <fieldset>
         <legend>Bejelentkezés</legend>
         <%= form_tag '/sessions/create', method: :post do %>
-            <%= label_tag 'email', 'Email', class: "userFormLabel" %>
-            <%= text_field 'email', '', class: "userFormElement" %>
-            <%= label_tag 'password', 'Jelszó', class: "userFormLabel" %>
-            <%= text_field 'password', '', class: "userFormElement" %>
-            <%= submit_tag "Bejelentkezés", class: "userFormElement" %>
+            <%= label_tag 'email', 'Email' %>
+            <%= text_field 'email', '' %>
+
+            <%= label_tag 'password', 'Jelszó' %>
+            <%= text_field 'password', '' %>
+
+            <%= submit_tag "Bejelentkezés" %>
         <% end %>
     </fieldset>
 </div>

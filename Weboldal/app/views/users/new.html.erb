@@ -1,2 +1,21 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div id="userForm">
+    <fieldset>
+        <legend>Regisztráció</legend>
+        <%= form_for @user,  url: '/users/create', method: :post do |form|%>
+
+            <%= form.label :name, 'Név' %>
+            <%= form.text_field :name %>
+
+            <%= form.label :email, 'Email' %>
+            <%= form.text_field :email %>
+
+            <%= form.label :password, 'Jelszó' %>
+            <%= form.password_field :password %>
+
+            <%= form.label :password_confirmation, 'Jelszó megerősítése' %>
+            <%= form.password_field :password_confirmation %>
+            
+            <%= form.submit "Regisztáció" %>
+        <% end %>
+    </fieldset>
+</div>
