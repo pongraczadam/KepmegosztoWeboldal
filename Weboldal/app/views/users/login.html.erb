@@ -1,2 +1,12 @@
-<h1>Users#login</h1>
-<p>Find me in app/views/users/login.html.erb</p>
+<div id="userForm">
+    <fieldset>
+        <legend>Bejelentkezés</legend>
+        <%= form_tag '/sessions/create', method: :post do %>
+            <%= label_tag 'email', 'Email', class: "userFormLabel" %>
+            <%= text_field 'email', '', class: "userFormElement" %>
+            <%= label_tag 'password', 'Jelszó', class: "userFormLabel" %>
+            <%= text_field 'password', '', class: "userFormElement" %>
+            <%= submit_tag "Bejelentkezés", class: "userFormElement" %>
+        <% end %>
+    </fieldset>
+</div>
