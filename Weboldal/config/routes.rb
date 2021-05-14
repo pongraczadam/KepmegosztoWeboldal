@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'images/index'
+  get 'images/new'
+  get 'images/show'
   get 'users/login'
   get 'users/new'
   post 'users/create'
