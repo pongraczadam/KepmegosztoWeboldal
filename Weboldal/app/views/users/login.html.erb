@@ -1,4 +1,9 @@
 <div id="userForm">
+    <script>
+        var str = '<%= flash[:notice] %>';
+        if (str != "")
+            alert(str);
+    </script>
     <fieldset>
         <legend>Bejelentkezés</legend>
         <%= form_tag '/sessions/create', method: :post do %>
@@ -6,7 +11,7 @@
             <%= text_field 'email', '', placeholder: 'Email' %>
 
             <%= label_tag 'password', 'Jelszó' %>
-            <%= text_field 'password', '', placeholder: 'Jelszó' %>
+            <%= password_field_tag 'password', '', placeholder: 'Jelszó' %>
 
             <%= submit_tag "Bejelentkezés" %>
         <% end %>

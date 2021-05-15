@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  post 'sessions/create', to: 'sessions#create', as: 'login'
+  get 'sessions/destroy', to: 'sessions#destroy', as: 'logout'
   resources 'images', only: [:index, :new, :show]
-  get 'images/new'
-  get 'images/show'
-  get 'users/login'
+  get 'images/', to: 'images#index', as: 'imagesindex'
+  get 'users/login', to: 'users#login', as: 'loginpage'
   get 'users/new'
   post 'users/create'
   get 'users/forgotten'

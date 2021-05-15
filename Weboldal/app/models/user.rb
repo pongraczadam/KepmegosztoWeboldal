@@ -14,4 +14,13 @@ class User < ApplicationRecord
         end
         self.encrypted_password = User.encrypt(self.password, self.salt)
     end
+
+    def self.authenticate(email, pass)
+        user = User.where(email: email).take
+        user && user.authenticated?(pass) ? user : nil
+    end
+
+    def authenticated?(pass)
+        self.encrypted_password == User.encrypt(pass, self.salt)
+    end
 end
