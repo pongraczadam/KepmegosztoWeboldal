@@ -1,5 +1,4 @@
 class ImagesController < ApplicationController
-  iclude Favourite
   before_action :set_image, only: %i[ show edit destroy download addtofavourite removefromfavourite ]
 
   def index
@@ -31,21 +30,25 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    if !(@image.user_id == @user.id)
+    if @image.user_id == @user.id
       @image.destroy
       flash[:notice] = 'A kép törölve!'
-      redirect :back
+      redirect_to images_path
     end
   end
 
   def addtofavourite
     f = Favourite.new
     f.user_id = @user.id
-    f.image_id = image_id
+    f.image_id = @image.id
     f.save
+    redirect_back fallback_location: @image
   end
 
   def removefromfavourite
+    f = Favourite.find_by(user_id: @user.id, image_id: @image.id)
+    f.destroy
+    redirect_back fallback_location: @image
   end
 
   private

@@ -1,4 +1,6 @@
 class Image < ApplicationRecord
+    has_many :Favourite, dependent: :destroy
+
     def Image.save_file(file, user_id)
         return if file.nil?
         return if !(file.content_type =~ /^image\/(jpeg|pjpeg|gif|png|bmp)$/)

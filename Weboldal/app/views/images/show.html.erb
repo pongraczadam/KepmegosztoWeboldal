@@ -6,10 +6,15 @@
         <fieldset>
             <legend>Kép tulajdonságai</legend>
             <% if @image.user_id == @user.id %>
-                <%= button_to "Törlés", image_path(@image.id), :method => :delete %>
+                <%= button_to "Törlés", image_path(@image.id), method: :delete, data: { confirm: 'Biztos ki akarod törölni a képet?' } %>
             <% end %>
-            <%= button_to "Kedvencekhez adás", addtofavourite_image_path(@image.id), :method => :post %>
-            <%= button_to "Eltávolítás a kedvencekből", removefromfavourite_image_path(@image.id), :method => :post %>
+
+            <% if isFavourite?(@user.id, @image.id) %>
+                <%= button_to "Eltávolítás a kedvencekből", removefromfavourite_image_path(@image.id), :method => :post %>
+            <% else %>
+                <%= button_to "Kedvencekhez adás", addtofavourite_image_path(@image.id), :method => :post %>
+            <% end %>
+            
         </fieldset>
     </div>
 </div>
