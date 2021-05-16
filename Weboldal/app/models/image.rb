@@ -1,6 +1,7 @@
 class Image < ApplicationRecord
     def Image.save_file(file, user_id)
         return if file.nil?
+        return if !(file.content_type =~ /^image\/(jpeg|pjpeg|gif|png|bmp)$/)
         dir = Rails.root.join('public', 'data')
         unless File.exists? dir
             Dir.mkdir dir

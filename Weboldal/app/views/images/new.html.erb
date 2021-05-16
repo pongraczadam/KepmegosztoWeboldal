@@ -2,7 +2,7 @@
     <fieldset>
         <legend>Kép feltöltése</legend>
 
-        <%= form_tag(upload_images_path, :accept => 'image', method: :post, multipart: true) do %>
+        <%= form_tag(upload_images_path, :accept => 'image/*', method: :post, multipart: true) do %>
             <%= label_tag 'Kép' %>
             <%= file_field_tag :image %>
             <%= submit_tag 'Feltöltés' %>

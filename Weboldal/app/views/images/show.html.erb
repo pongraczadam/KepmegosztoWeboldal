@@ -1,2 +1,19 @@
-<h1>Images#show</h1>
-<p>Find me in app/views/images/show.html.erb</p>
+<div id="showContentDiv">
+    <div id="showImageDiv">
+        <%= image_tag download_image_path(@image.id) %>
+    </div>
+    <div id="showImageSettingsDiv">
+        <fieldset>
+            <legend>Kép tulajdonságai</legend>
+            <% if @image.user_id == @user.id %>
+                <%= button_to "Törlés", image_path(@image.id), :method => :delete %>
+            <% end %>
+            <%= button_to "Kedvencekhez adás", addtofavourite_image_path(@image.id), :method => :post %>
+            <%= button_to "Eltávolítás a kedvencekből", removefromfavourite_image_path(@image.id), :method => :post %>
+        </fieldset>
+    </div>
+</div>
+
+<div id="showCommentDiv">
+
+</div>

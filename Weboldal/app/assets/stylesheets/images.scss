@@ -1,3 +1,55 @@
 // Place all the styles related to the images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#imageFieldset {
+    margin: 30px;
+}
+
+#imageDiv {
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    border: 3px solid slategrey;
+    width: 250px;
+    height: 250px;
+}
+
+#imageDiv img {
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
+    max-width: 250px;
+    max-height: 250px;
+}
+
+#showContentDiv {
+    margin: 0;
+    padding: 0;
+}
+
+#showContentDiv img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#showContentDiv input {
+    margin: 5px;
+    padding: 0;
+}
+
+#showImageDiv {
+    margin: 0;
+    padding: 25px;
+    width: 60%;
+    float:left;
+}
+
+#showImageSettingsDiv {
+    margin: 0;
+    padding: 25px;
+    width: 25%;
+    height: 500px;
+    float: left;
+}

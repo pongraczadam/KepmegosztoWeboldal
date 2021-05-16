@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   post 'sessions/create', to: 'sessions#create', as: 'login'
   get 'sessions/destroy', to: 'sessions#destroy', as: 'logout'
 
-  resources 'images', only: [:index, :new, :show] do
+  resources 'images', only: [:index, :new, :show, :destroy] do
     post 'upload', to: 'images#upload', as:'upload', on: :collection
-
+    get 'download', to: 'images#download', as:'download', on: :member
+    post 'addtofavourite', to: 'images#addtofavourite', as:'addtofavourite', on: :member
+    post 'removefromfavourite', to: 'images#removefromfavourite', as:'removefromfavourite', on: :member
   end
 
   get 'users/login', to: 'users#login', as: 'loginpage'
