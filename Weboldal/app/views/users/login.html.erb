@@ -1,9 +1,4 @@
 <div id="userForm">
-    <script>
-        var str = '<%= flash[:notice] %>';
-        if (str != "")
-            alert(str);
-    </script>
     <fieldset>
         <legend>Bejelentkezés</legend>
         <%= form_tag '/sessions/create', method: :post do %>

@@ -1,7 +1,14 @@
 class User < ApplicationRecord
     attr_accessor :password
-
     before_save :encrypt_password
+
+    validates :name, presence: true
+    validates :email, {presence: true, uniqueness: true}
+    validates :password, confirmation: true, if: :password_required?
+
+    def password_required?
+        self.new_record? || !self.password.blank?
+    end
 
     def User.encrypt(password, salt)
         Digest::SHA1.hexdigest(password + salt)
