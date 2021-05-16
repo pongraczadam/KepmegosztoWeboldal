@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_15_210649) do
+ActiveRecord::Schema.define(version: 2021_05_16_152234) do
+
+  create_table "images", charset: "utf8mb4", force: :cascade do |t|
+    t.string "path"
+    t.string "mime"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_images_on_user_id"
+  end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -21,4 +30,5 @@ ActiveRecord::Schema.define(version: 2021_05_15_210649) do
     t.string "salt"
   end
 
+  add_foreign_key "images", "users"
 end

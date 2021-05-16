@@ -37,3 +37,26 @@
  #userName {
     border-color:turquoise;
  }
+
+ #centerForm {
+   width: 50%;
+   text-align: center;
+   margin-top: 3%;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+#centerForm label {
+   display: block;
+   margin-top: 15px;
+   margin-bottom: 15px;
+}
+
+#centerForm input {
+   display: block;
+   height: 50px;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   margin-left: auto;
+   margin-right: auto;
+}

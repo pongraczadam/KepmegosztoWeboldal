@@ -11,6 +11,11 @@ class ImagesController < ApplicationController
     logged_in_checker
   end
 
+  def upload
+    image = Image.save_file(params[:image], @user.id)
+    redirect_to image;
+  end
+
   private
   def logged_in_checker
     if !session[:user]

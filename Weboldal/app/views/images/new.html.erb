@@ -1,2 +1,12 @@
-<h1>Images#new</h1>
-<p>Find me in app/views/images/new.html.erb</p>
+<div id="centerForm">
+    <fieldset>
+        <legend>Kép feltöltése</legend>
+
+        <%= form_tag(upload_images_path, :accept => 'image', method: :post, multipart: true) do %>
+            <%= label_tag 'Kép' %>
+            <%= file_field_tag :image %>
+            <%= submit_tag 'Feltöltés' %>
+        <% end %>
+
+    </fieldset>
+</div>

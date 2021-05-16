@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  path: MyString
+  mime: MyString
+  user: 
+
+two:
+  path: MyString
+  mime: MyString
+  user: 
