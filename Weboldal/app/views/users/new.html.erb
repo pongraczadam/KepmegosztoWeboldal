@@ -1,7 +1,7 @@
 <div id="userForm">
     <fieldset>
         <legend>Regisztráció</legend>
-        <%= form_for @user,  url: '/users/create', method: :post do |form|%>
+        <%= form_for @user, url: createuser_path, method: :post do |form|%>
 
             <%= form.label :name, 'Név' %>
             <%= form.text_field :name, placeholder: 'Név' %>

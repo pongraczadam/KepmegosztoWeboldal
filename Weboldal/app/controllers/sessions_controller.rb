@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     if @user
       session[:user] = @user.id
       flash[:notice] = 'Sikeres bejelentkezés!'      
-      redirect_to imagesindex_path
+      redirect_to images_path
     else
       flash[:notice] = 'Helytelen email cím vagy jelszó!'
       redirect_back fallback_location: loginpage_path

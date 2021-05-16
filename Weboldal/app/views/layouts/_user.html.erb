@@ -1,3 +1,6 @@
-<%= button_to  "Képek", '/images', :method => :get, form_class: "mButtonForm", class:"mButton" %>
-<%= button_to  "Feltöltés", '/images/new', :method => :get, form_class: "mButtonForm", class:"mButton" %>
-<%= button_to  "Kijelentkezés", '/sessions/destroy', :method => :get, form_class: "mButtonForm", class:"mButton" %>
+<fieldset id = 'userName'>
+    <legend><%= @user.name %></legend>
+    <%= button_to  "Képek", images_path, :method => :get, form_class: "mButtonForm", class:"mButton" %>
+    <%= button_to  "Feltöltés", new_image_path, :method => :get, form_class: "mButtonForm", class:"mButton" %>
+    <%= button_to  "Kijelentkezés", logout_path, :method => :get, form_class: "mButtonForm", class:"mButton" %>
+</fieldset>
