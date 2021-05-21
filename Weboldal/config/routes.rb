@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'download', to: 'images#download', as:'download', on: :member
     post 'addtofavourite', to: 'images#addtofavourite', as:'addtofavourite', on: :member
     post 'removefromfavourite', to: 'images#removefromfavourite', as:'removefromfavourite', on: :member
+    post 'addcomment', to: 'images#addcomment', as:'addcomment', on: :member
   end
 
   get 'users/login', to: 'users#login', as: 'loginpage'

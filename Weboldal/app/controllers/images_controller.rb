@@ -39,16 +39,28 @@ class ImagesController < ApplicationController
   end
 
   def addtofavourite
+    if Favourite.where(user_id: @user.id, image_id: @image.id).count() > 0
+      flash[:notice] = 'A kép már hozzá van adva a kedvencekhez!'
+      redirect_back fallback_location: @image
+      return;
+    end
     f = Favourite.new
     f.user_id = @user.id
     f.image_id = @image.id
     f.save
+    flash[:notice] = 'A kép sikeresen hozzáadva a kedvencekhez!'
     redirect_back fallback_location: @image
   end
 
   def removefromfavourite
     f = Favourite.find_by(user_id: @user.id, image_id: @image.id)
     f.destroy
+    flash[:notice] = 'A kép sikeresen törölve a kedvencekből!'
+    redirect_back fallback_location: @image
+  end
+
+  def addcomment
+    flash[:notice] = 'Komment hozzáadva!'
     redirect_back fallback_location: @image
   end
 
