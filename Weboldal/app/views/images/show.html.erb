@@ -14,7 +14,7 @@
             <% else %>
                 <%= button_to "Kedvencekhez adás", addtofavourite_image_path(@image.id), :method => :post %>
             <% end %>
-            
+            <p>Feltöltő: <%= @uploaderUser %></p>
         </fieldset>
     </div>
 </div>

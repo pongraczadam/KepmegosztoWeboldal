@@ -12,6 +12,7 @@ class ImagesController < ApplicationController
 
   def show
     logged_in_checker
+    @uploaderUser = User.find_by(id: @image.user_id).name;
   end
 
   def upload
