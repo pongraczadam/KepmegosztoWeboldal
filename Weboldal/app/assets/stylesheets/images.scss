@@ -25,8 +25,9 @@
 }
 
 #showContentDiv {
+    display: block;
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
 #showContentDiv img {
@@ -52,4 +53,14 @@
     width: 25%;
     height: 500px;
     float: left;
+}
+
+#showCommentDiv {
+    display: block;
+    margin: 0;
+    padding: 20px;
+}
+
+#showCommentDiv fieldset {
+    margin-bottom: 20px;
 }

@@ -1,24 +1,31 @@
 <div id="showContentDiv">
-    <div id="showImageDiv">
-        <%= image_tag download_image_path(@image.id) %>
-    </div>
-    <div id="showImageSettingsDiv">
-        <fieldset>
-            <legend>Kép tulajdonságai</legend>
-            <% if @image.user_id == @user.id %>
-                <%= button_to "Törlés", image_path(@image.id), method: :delete, data: { confirm: 'Biztos ki akarod törölni a képet?' } %>
-            <% end %>
+    <fieldset>
+        <div id="showImageDiv">
+            <%= image_tag download_image_path(@image.id) %>
+        </div>
+        <div id="showImageSettingsDiv">
+            <fieldset>
+                <legend>Kép tulajdonságai</legend>
+                <% if @image.user_id == @user.id %>
+                    <%= button_to "Törlés", image_path(@image.id), method: :delete, data: { confirm: 'Biztos ki akarod törölni a képet?' } %>
+                <% end %>
 
-            <% if isFavourite?(@user.id, @image.id) %>
-                <%= button_to "Eltávolítás a kedvencekből", removefromfavourite_image_path(@image.id), :method => :post %>
-            <% else %>
-                <%= button_to "Kedvencekhez adás", addtofavourite_image_path(@image.id), :method => :post %>
-            <% end %>
-            <p>Feltöltő: <%= @uploaderUser %></p>
-        </fieldset>
-    </div>
+                <% if isFavourite?(@user.id, @image.id) %>
+                    <%= button_to "Eltávolítás a kedvencekből", removefromfavourite_image_path(@image.id), :method => :post %>
+                <% else %>
+                    <%= button_to "Kedvencekhez adás", addtofavourite_image_path(@image.id), :method => :post %>
+                <% end %>
+                <p>Feltöltő: <%= @uploaderUser %></p>
+            </fieldset>
+        </div>
+    </fieldset>
 </div>
 
 <div id="showCommentDiv">
-
+    <fieldset>
+        <legend>Komment hozzáadása</legend>
+    </fieldset>
+    <fieldset>
+        <legend>Kommentek</legend>
+    </fieldset>
 </div>
