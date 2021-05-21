@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: %i[ show edit destroy download addtofavourite removefromfavourite ]
+  before_action :set_image, only: %i[ show edit destroy download addtofavourite removefromfavourite addcomment ]
 
   def index
     logged_in_checker
