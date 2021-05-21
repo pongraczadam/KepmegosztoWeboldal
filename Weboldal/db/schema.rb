@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_16_180516) do
+ActiveRecord::Schema.define(version: 2021_05_21_200959) do
+
+  create_table "comments", charset: "utf8mb4", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "image_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_comments_on_image_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "favourites", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "image_id", null: false
@@ -30,6 +40,14 @@ ActiveRecord::Schema.define(version: 2021_05_16_180516) do
     t.index ["user_id"], name: "index_images_on_user_id"
   end
 
+  create_table "titles", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.bigint "image_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_titles_on_image_id"
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -39,7 +57,10 @@ ActiveRecord::Schema.define(version: 2021_05_16_180516) do
     t.string "salt"
   end
 
+  add_foreign_key "comments", "images"
+  add_foreign_key "comments", "users"
   add_foreign_key "favourites", "images"
   add_foreign_key "favourites", "users"
   add_foreign_key "images", "users"
+  add_foreign_key "titles", "images"
 end
