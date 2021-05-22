@@ -1,5 +1,7 @@
 class Image < ApplicationRecord
     has_many :Favourite, dependent: :destroy
+    has_many :Comment, dependent: :destroy
+    has_many :Title, dependent: :destroy
 
     def Image.save_file(file, user_id)
         return if file.nil?

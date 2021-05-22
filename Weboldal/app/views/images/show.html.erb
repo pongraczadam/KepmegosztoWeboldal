@@ -24,7 +24,7 @@
 <div id="showCommentDiv">
     <fieldset>
         <legend>Komment hozzáadása</legend>
-        <%= form_tag addcomment(@image.id), method: :post do%>
+        <%= form_tag addcomment_image_path(@image.id), method: :post do %>
             <%= text_area 'content', nil %>
 
             <%= submit_tag "Küldés" %>
