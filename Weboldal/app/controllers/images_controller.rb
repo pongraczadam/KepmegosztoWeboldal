@@ -13,6 +13,7 @@ class ImagesController < ApplicationController
   def show
     logged_in_checker
     @uploaderUser = User.find_by(id: @image.user_id).name;
+    @comments = Comment.where(image_id: @image.id).order('updated_at ASC')
   end
 
   def upload
@@ -42,7 +43,7 @@ class ImagesController < ApplicationController
     if Favourite.where(user_id: @user.id, image_id: @image.id).count() > 0
       flash[:notice] = 'A kép már hozzá van adva a kedvencekhez!'
       redirect_back fallback_location: @image
-      return;
+      return
     end
     f = Favourite.new
     f.user_id = @user.id
@@ -60,6 +61,17 @@ class ImagesController < ApplicationController
   end
 
   def addcomment
+    comment = params[:content].first
+    if comment == ''
+      flash[:notice] = 'A komment nem lehet üres!'
+      redirect_back fallback_location: @image
+      return
+    end
+    c = Comment.new
+    c.content = comment
+    c.user_id = @user.id
+    c.image_id = @image.id
+    c.save
     flash[:notice] = 'Komment hozzáadva!'
     redirect_back fallback_location: @image
   end

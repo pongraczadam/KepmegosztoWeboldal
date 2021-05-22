@@ -32,5 +32,12 @@
     </fieldset>
     <fieldset>
         <legend>Kommentek</legend>
+        <% @comments.each do |comment| %>
+            <fieldset>
+                <legend><%= uploader(comment.user_id) %></legend>
+                <%= simple_format comment.content %>
+                <p style="text-align:right"><%= comment.updated_at %></p>
+            </fieldset>
+        <% end %>
     </fieldset>
 </div>
