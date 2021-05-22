@@ -38,3 +38,8 @@ Comment.create content: "ASD", user_id: users[2].id, image_id: images[2].id
 Tag.create name: "Yoda", image_id: images[0].id
 Tag.create name: "Yoda", image_id: images[2].id
 Tag.create name: "kutya", image_id: images[1].id
+Tag.create name: "kutya", image_id: images[7].id
+Tag.create name: "macska", image_id: images[8].id
+Tag.create name: "macska", image_id: images[9].id
+Tag.create name: "farkas", image_id: images[5].id
+Tag.create name: "farkas", image_id: images[6].id
