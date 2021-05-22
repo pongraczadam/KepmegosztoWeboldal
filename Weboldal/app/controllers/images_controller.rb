@@ -3,7 +3,11 @@ class ImagesController < ApplicationController
 
   def index
     logged_in_checker
-    @images = Image.get_image_page(params[:page])
+    @tag = params[:tag]
+    @favourite = params[:favourite]
+    @own = params[:own]
+    @images = Image.get_image_page(params[:page], @tag, @favourite, @own, @user.id)
+
   end
 
   def new

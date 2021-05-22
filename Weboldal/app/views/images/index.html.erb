@@ -1,5 +1,16 @@
 <fieldset id="imageFieldset">
     <legend>Keresés</legend>
+    <%= form_tag images_path, method: :get do %>
+        <%= text_field_tag 'tag', @tag, placeholder: 'Cimke' %>
+       
+        <%= check_box_tag 'favourite', '', @favourite %>
+        <%= label_tag 'favourite', 'Kedvendek' %>
+        
+        <%= check_box_tag 'own', '', @own %>
+        <%= label_tag 'own', 'Saját képek' %>
+        
+        <%= submit_tag "Keresés", name: "" %>
+    <% end %>
 </fieldset>
 
 <fieldset id="imageFieldset">

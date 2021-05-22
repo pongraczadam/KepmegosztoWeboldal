@@ -18,7 +18,19 @@ class Image < ApplicationRecord
         image
     end
 
-    def Image.get_image_page(page)
-        Image.all.order(created_at: :asc).paginate(page: page, per_page: 10)
+    def Image.get_image_page(page, tag, favourite, own, user_id)
+        if tag && tag != ''
+            images = Image.joins(:Tag).where(tags: {name: tag})
+        else
+            images = Image.all
+        end
+        if own
+            images = images.where(user_id: user_id)
+        end
+        if favourite
+            images = images.joins(:Favourite).where(favourites: {user_id: user_id})
+        end
+        images.order(created_at: :asc).paginate(page: page, per_page: 10)
+        
     end
 end
