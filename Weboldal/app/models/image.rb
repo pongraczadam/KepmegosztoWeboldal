@@ -1,4 +1,5 @@
 class Image < ApplicationRecord
+    belongs_to :user
     has_many :Favourite, dependent: :destroy
     has_many :Comment, dependent: :destroy
     has_many :Tag, dependent: :destroy

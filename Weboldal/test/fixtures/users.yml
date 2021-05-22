@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: MyString
-  password: MyString
+  name: TestAdmin
+  email: testadmin@bme.hu
+  salt: titok
+  encrypted_password: <%= Digest::SHA1.hexdigest('titoktitok') %>
 
 two:
-  name: MyString
-  email: MyString
-  password: MyString
+  name: TestValaki
+  email: testvalaki@bme.hu
+  salt: titok
+  encrypted_password: <%= Digest::SHA1.hexdigest('titoktitok') %>

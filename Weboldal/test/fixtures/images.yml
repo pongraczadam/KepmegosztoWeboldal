@@ -1,11 +1,18 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+<% dir = Rails.root.join('public', 'data') %>
+
 one:
-  path: MyString
-  mime: MyString
-  user: 
+  path: <%= File.join(dir, "1") %>
+  mime: image/jpeg
+  user: one
 
 two:
-  path: MyString
-  mime: MyString
-  user: 
+  path: <%= File.join(dir, "2") %>
+  mime: image/jpeg
+  user: two
+
+three:
+  path: <%= File.join(dir, "3") %>
+  mime: image/jpeg
+  user: two
