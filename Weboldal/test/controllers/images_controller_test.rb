@@ -4,6 +4,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @image = images(:one)
   end
+  
   test "should get index" do
     post login_path, params: {email: users(:one).email, password: 'titok'}, headers: {'HTTP_REFERER': loginpage_path}
     assert_equal session[:user], users(:one).id

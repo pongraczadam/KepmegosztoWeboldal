@@ -11,3 +11,9 @@ two:
   email: testvalaki@bme.hu
   salt: titok
   encrypted_password: <%= Digest::SHA1.hexdigest('titoktitok') %>
+
+three:
+  name: TestUser
+  email: testuser@bme.hu
+  salt: titok
+  encrypted_password: <%= Digest::SHA1.hexdigest('titoktitok') %>
