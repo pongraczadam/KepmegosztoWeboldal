@@ -26,3 +26,7 @@ Comment.create content: "Teszt komment", user_id: users[1].id, image_id: images[
 Comment.create content: "Teszt komment", user_id: users[2].id, image_id: images[0].id
 Comment.create content: "Gyönyörű kép", user_id: users[0].id, image_id: images[2].id
 Comment.create content: "ASD", user_id: users[2].id, image_id: images[2].id
+
+Tag.create name: "Yoda", image_id: images[0].id
+Tag.create name: "Yoda", image_id: images[2].id
+Tag.create name: "kutya", image_id: images[1].id

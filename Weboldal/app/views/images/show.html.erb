@@ -16,14 +16,16 @@
                     <%= button_to "Kedvencekhez adás", addtofavourite_image_path(@image.id), :method => :post %>
                 <% end %>
 
-                <fieldset>
-                    <legend>Cimke hozzáadása</legend>
-                    <%= form_tag addtag_image_path(@image.id), method: :post do %>
-                        <%= text_field 'tag', '', placeholder: 'Cimke' %>
-            
-                        <%= submit_tag "Hozzáadás" %>
-                    <% end %>
-                </fieldset>
+                <% if @image.user_id == @user.id %>
+                    <fieldset>
+                        <legend>Cimke hozzáadása</legend>
+                        <%= form_tag addtag_image_path(@image.id), method: :post do %>
+                            <%= text_field 'tag', '', placeholder: 'Cimke' %>
+                
+                            <%= submit_tag "Hozzáadás" %>
+                        <% end %>
+                    </fieldset>
+                <% end %>
 
                 <p>Feltöltő: <%= @uploaderUser %></p>
             </fieldset>

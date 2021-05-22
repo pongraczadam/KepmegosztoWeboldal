@@ -88,6 +88,10 @@ class ImagesController < ApplicationController
       redirect_back fallback_location: @image
       return
     end
+    t = Tag.new
+    t.name = tag
+    t.image_id = @image.id
+    t.save
     flash[:notice] = 'Cimke hozzáadva!'
     redirect_back fallback_location: @image
   end
