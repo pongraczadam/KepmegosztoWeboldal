@@ -16,6 +16,25 @@
                     <%= button_to "Kedvencekhez adás", addtofavourite_image_path(@image.id), :method => :post %>
                 <% end %>
 
+                <table id="tagTable">
+                    <tr>
+                      <th>Cimke</th>
+                      <th>db</th>
+                      <% if @image.user_id == @user.id %>
+                        <th>Törlés</th>
+                      <% end %>
+                    </tr>
+                    <% @tags.each do |tag| %>
+                        <tr>
+                            <td><%= tag.name %></td>
+                            <td><%= tagdb tag.name %></td>
+                            <% if @image.user_id == @user.id %>
+                                <td><%= button_to "X", removetag_image_path(@image.id, tag_id: tag.id), :method => :post %></td>
+                            <% end %>
+                        </tr>
+                    <% end %>
+                  </table>
+
                 <% if @image.user_id == @user.id %>
                     <fieldset>
                         <legend>Cimke hozzáadása</legend>
@@ -26,7 +45,6 @@
                         <% end %>
                     </fieldset>
                 <% end %>
-
                 <p>Feltöltő: <%= @uploaderUser %></p>
             </fieldset>
         </div>

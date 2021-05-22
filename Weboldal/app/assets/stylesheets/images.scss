@@ -55,6 +55,19 @@
     float: left;
 }
 
+#showImageSettingsDiv table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#showImageSettingsDiv table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+
 #showCommentDiv {
     display: block;
     margin: 0;

@@ -14,6 +14,7 @@ class ImagesController < ApplicationController
     logged_in_checker
     @uploaderUser = User.find_by(id: @image.user_id).name;
     @comments = Comment.where(image_id: @image.id).order('updated_at ASC')
+    @tags = Tag.where(image_id: @image.id)
   end
 
   def upload
@@ -97,6 +98,10 @@ class ImagesController < ApplicationController
   end
 
   def removetag
+    t = Tag.find_by(id: params[:tag_id])
+    t.destroy
+    flash[:notice] = 'A cimke sikeresen törölve!'
+    redirect_back fallback_location: @image
   end
 
   private

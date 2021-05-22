@@ -15,6 +15,14 @@ dir = Rails.root.join('public', 'data')
 Image.create path: File.join(dir, "1"), mime: "image/jpeg", user_id: users[0].id
 Image.create path: File.join(dir, "2"), mime: "image/jpeg", user_id: users[0].id
 Image.create path: File.join(dir, "3"), mime: "image/jpeg", user_id: users[1].id
+Image.create path: File.join(dir, "4"), mime: "image/jpeg", user_id: users[0].id
+Image.create path: File.join(dir, "5"), mime: "image/jpeg", user_id: users[0].id
+Image.create path: File.join(dir, "6"), mime: "image/jpeg", user_id: users[2].id
+Image.create path: File.join(dir, "7"), mime: "image/jpeg", user_id: users[2].id
+Image.create path: File.join(dir, "8"), mime: "image/jpeg", user_id: users[2].id
+Image.create path: File.join(dir, "9"), mime: "image/jpeg", user_id: users[2].id
+Image.create path: File.join(dir, "10"), mime: "image/jpeg", user_id: users[2].id
+Image.create path: File.join(dir, "11"), mime: "image/jpeg", user_id: users[2].id
 images = Image.all
 
 Favourite.create user_id: users[0].id, image_id: images[0].id

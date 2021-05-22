@@ -6,4 +6,8 @@ module ImagesHelper
     def uploader(user_id)
         User.find_by(id: user_id).name
     end
+
+    def tagdb(tagName)
+        Tag.where(name: tagName).count
+    end
 end
