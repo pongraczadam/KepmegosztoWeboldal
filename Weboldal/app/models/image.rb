@@ -17,4 +17,8 @@ class Image < ApplicationRecord
         image.update path: path
         image
     end
+
+    def Image.get_image_page(page)
+        Image.all.order(created_at: :asc).paginate(page: page, per_page: 10)
+    end
 end

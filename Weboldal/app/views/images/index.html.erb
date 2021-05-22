@@ -1,5 +1,10 @@
 <fieldset id="imageFieldset">
+    <legend>Keresés</legend>
+</fieldset>
+
+<fieldset id="imageFieldset">
     <legend>Képek</legend>
+
     <% @images.each do |image| %>
         <div id="imageDiv">
             <a href="<%= image_path(image.id) %>">
@@ -7,4 +12,5 @@
             </a>
         </div>
     <% end %>
+    <div style="margin: 15px;"><%= will_paginate  @images %></div>
 </fieldset>

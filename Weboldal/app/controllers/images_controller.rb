@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
 
   def index
     logged_in_checker
-    @images = Image.all
+    @images = Image.get_image_page(params[:page])
   end
 
   def new
@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
   def show
     logged_in_checker
     @uploaderUser = User.find_by(id: @image.user_id).name;
-    @comments = Comment.where(image_id: @image.id).order('updated_at ASC')
+    @comments = Comment.where(image_id: @image.id).order(updated_at: :asc)
     @tags = Tag.where(image_id: @image.id)
   end
 
