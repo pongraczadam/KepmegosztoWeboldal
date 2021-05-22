@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: %i[ show edit destroy download addtofavourite removefromfavourite addcomment ]
+  before_action :set_image, only: %i[ show edit destroy download addtofavourite removefromfavourite addcomment addtag removetag ]
 
   def index
     logged_in_checker
@@ -74,6 +74,25 @@ class ImagesController < ApplicationController
     c.save
     flash[:notice] = 'Komment hozzáadva!'
     redirect_back fallback_location: @image
+  end
+
+  def addtag
+    tag = params[:tag].first
+    if tag == ''
+      flash[:notice] = 'A cimke nem lehet üres!'
+      redirect_back fallback_location: @image
+      return
+    end
+    if Tag.where(: @user.id, image_id: @image.id).count() > 0
+      flash[:notice] = 'A cimke már hozzá van adva a képhez!'
+      redirect_back fallback_location: @image
+      return
+    end
+    flash[:notice] = 'Cimke hozzáadva!'
+    redirect_back fallback_location: @image
+  end
+
+  def removetag
   end
 
   private

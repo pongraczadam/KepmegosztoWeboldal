@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     post 'addtofavourite', to: 'images#addtofavourite', as:'addtofavourite', on: :member
     post 'removefromfavourite', to: 'images#removefromfavourite', as:'removefromfavourite', on: :member
     post 'addcomment', to: 'images#addcomment', as:'addcomment', on: :member
+    post 'addtag', to: 'images#addtag', as:'addtag', on: :member
+    post 'removetag', to: 'images#removetag', as:'removetag', on: :member
   end
 
   get 'users/login', to: 'users#login', as: 'loginpage'

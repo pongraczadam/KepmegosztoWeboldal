@@ -9,8 +9,20 @@
 User.create name: "Admin", email: "admin@gmail.com", password: 'admin', password_confirmation: 'admin'
 User.create name: "Test", email: "test@gmail.com", password: 'test', password_confirmation: 'test'
 User.create name: "Valaki", email: "valaki@mail.bme.hu", password: 'valaki', password_confirmation: 'valaki'
+users = User.all
 
 dir = Rails.root.join('public', 'data')
-Image.create path: File.join(dir, "1"), mime: "image/jpeg", user_id: User.find_by(email: "admin@gmail.com").id
-Image.create path: File.join(dir, "2"), mime: "image/jpeg", user_id: User.find_by(email: "admin@gmail.com").id
-Image.create path: File.join(dir, "3"), mime: "image/jpeg", user_id: User.find_by(email: "test@gmail.com").id
+Image.create path: File.join(dir, "1"), mime: "image/jpeg", user_id: users[0].id
+Image.create path: File.join(dir, "2"), mime: "image/jpeg", user_id: users[0].id
+Image.create path: File.join(dir, "3"), mime: "image/jpeg", user_id: users[1].id
+images = Image.all
+
+Favourite.create user_id: users[0].id, image_id: images[0].id
+Favourite.create user_id: users[0].id, image_id: images[2].id
+Favourite.create user_id: users[1].id, image_id: images[0].id
+
+Comment.create content: "Teszt komment", user_id: users[0].id, image_id: images[0].id
+Comment.create content: "Teszt komment", user_id: users[1].id, image_id: images[0].id
+Comment.create content: "Teszt komment", user_id: users[2].id, image_id: images[0].id
+Comment.create content: "Gyönyörű kép", user_id: users[0].id, image_id: images[2].id
+Comment.create content: "ASD", user_id: users[2].id, image_id: images[2].id

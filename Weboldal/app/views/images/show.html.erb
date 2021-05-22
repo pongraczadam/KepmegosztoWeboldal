@@ -15,6 +15,16 @@
                 <% else %>
                     <%= button_to "Kedvencekhez adás", addtofavourite_image_path(@image.id), :method => :post %>
                 <% end %>
+
+                <fieldset>
+                    <legend>Cimke hozzáadása</legend>
+                    <%= form_tag addtag_image_path(@image.id), method: :post do %>
+                        <%= text_field 'tag', '', placeholder: 'Cimke' %>
+            
+                        <%= submit_tag "Hozzáadás" %>
+                    <% end %>
+                </fieldset>
+
                 <p>Feltöltő: <%= @uploaderUser %></p>
             </fieldset>
         </div>
@@ -25,7 +35,7 @@
     <fieldset>
         <legend>Komment hozzáadása</legend>
         <%= form_tag addcomment_image_path(@image.id), method: :post do %>
-            <%= text_area 'content', nil %>
+            <%= text_area 'content', '', placeholder: 'Komment' %>
 
             <%= submit_tag "Küldés" %>
         <% end %>
