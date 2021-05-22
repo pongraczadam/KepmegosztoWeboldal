@@ -83,7 +83,7 @@ class ImagesController < ApplicationController
       redirect_back fallback_location: @image
       return
     end
-    if Tag.where(: @user.id, image_id: @image.id).count() > 0
+    if Tag.where(name: tag, image_id: @image.id).count() > 0
       flash[:notice] = 'A cimke már hozzá van adva a képhez!'
       redirect_back fallback_location: @image
       return
