@@ -20,4 +20,21 @@ class GuestsTest < ApplicationSystemTestCase
     page.driver.browser.switch_to.alert.accept
     assert_selector 'legend', text: "Bejelentkezés"
   end
+
+  test "search" do
+    visit loginpage_path
+    assert_selector 'legend', text: "Bejelentkezés"
+    
+    fill_in "Email", with: users(:one).email
+    fill_in "Jelszó", with: 'titok'
+    
+    within '#centerForm' do
+      click_on "Bejelentkezés"
+    end
+
+    page.driver.browser.switch_to.alert.accept
+
+    fill_in "Cimke", with: "Yoda"
+    click_on "Keresés"
+  end
 end
